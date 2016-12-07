@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="NotificationBadge">
+        <attr name="badgeTextSize" format="dimension"/>
+        <attr name="badgeTextColor" format="color" />
+        <attr name="badgeBackground" format="integer" />
+        <attr name="animationEnabled" format="boolean" />
+        <attr name="animationDuration" format="integer" />
+    </declare-styleable>
+</resources>
