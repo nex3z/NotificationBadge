@@ -6,5 +6,7 @@
         <attr name="badgeBackground" format="integer" />
         <attr name="animationEnabled" format="boolean" />
         <attr name="animationDuration" format="integer" />
+        <attr name="maxTextLength" format="integer" />
+        <attr name="ellipsizeText" format="string" />
     </declare-styleable>
 </resources>

@@ -17,19 +17,23 @@ public class NotificationBadge extends FrameLayout {
     private static final int DEFAULT_TEXT_SIZE = 14;
     private static final boolean DEFAULT_ANIMATION_ENABLED = true;
     private static final int DEFAULT_ANIMATION_DURATION = 500;
+    private static final int DEFAULT_MAX_TEXT_LENGTH = 2;
+    private static final String DEFAULT_MAX_LENGTH_REACHED_TEXT = "...";
 
     private FrameLayout mContainer;
     private ImageView mIvBadgeBg;
     private TextView mTvBadgeText;
-    private int mBadgeTextColor;
-    private float mBadgeTextSize;
-    private int mAnimationDuration;
+    private int mBadgeTextColor = DEFAULT_TEXT_COLOR;
+    private float mBadgeTextSize = dpToPx(DEFAULT_TEXT_SIZE);
+    private int mAnimationDuration = DEFAULT_ANIMATION_DURATION;
     private Animation mUpdate;
     private Animation mShow;
     private Animation mHide;
     private String mBadgeText;
     private boolean mIsBadgeShown;
-    private boolean mAnimationEnabled;
+    private boolean mAnimationEnabled = DEFAULT_ANIMATION_ENABLED;
+    private int mMaxTextLength = DEFAULT_MAX_TEXT_LENGTH;
+    private String mEllipsizeText = DEFAULT_MAX_LENGTH_REACHED_TEXT;
 
     public NotificationBadge(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -56,6 +60,12 @@ public class NotificationBadge extends FrameLayout {
             Drawable badgeBackground = a.getDrawable(R.styleable.NotificationBadge_badgeBackground);
             if (badgeBackground != null) {
                 mIvBadgeBg.setImageDrawable(badgeBackground);
+            }
+
+            mMaxTextLength = a.getInt(R.styleable.NotificationBadge_maxTextLength, DEFAULT_MAX_TEXT_LENGTH);
+            mEllipsizeText = a.getString(R.styleable.NotificationBadge_ellipsizeText);
+            if (mEllipsizeText == null) {
+                mEllipsizeText = DEFAULT_MAX_LENGTH_REACHED_TEXT;
             }
         } finally {
             a.recycle();
@@ -103,8 +113,16 @@ public class NotificationBadge extends FrameLayout {
         }
     }
 
+    public void setMaxTextLength(int maxLength) {
+        mMaxTextLength = maxLength;
+    }
+
     public void setText(String text) {
-        mBadgeText = text;
+        if (text.length() > mMaxTextLength) {
+            mBadgeText = mEllipsizeText;
+        } else {
+            mBadgeText = text;
+        }
         if (text == null || text.isEmpty()) {
             clear();
         } else {
@@ -112,7 +130,7 @@ public class NotificationBadge extends FrameLayout {
                 if (mAnimationEnabled) {
                     mContainer.startAnimation(mUpdate);
                 } else {
-                    mTvBadgeText.setText(text);
+                    mTvBadgeText.setText(mBadgeText);
                 }
             } else {
                 show(text);
