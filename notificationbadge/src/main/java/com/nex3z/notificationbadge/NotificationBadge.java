@@ -118,7 +118,7 @@ public class NotificationBadge extends FrameLayout {
     }
 
     public void setText(String text) {
-        if (text.length() > mMaxTextLength) {
+        if (text != null && text.length() > mMaxTextLength) {
             mBadgeText = mEllipsizeText;
         } else {
             mBadgeText = text;
@@ -177,16 +177,12 @@ public class NotificationBadge extends FrameLayout {
         mUpdate.setAnimationListener(new Animation.AnimationListener() {
             @Override
             public void onAnimationStart(Animation animation) {
-
-            }
-            @Override
-            public void onAnimationEnd(Animation animation) {
-
-            }
-            @Override
-            public void onAnimationRepeat(Animation animation) {
                 mTvBadgeText.setText(mBadgeText);
             }
+            @Override
+            public void onAnimationEnd(Animation animation) {}
+            @Override
+            public void onAnimationRepeat(Animation animation) {}
         });
 
         mShow = new ScaleAnimation(0, 1, 0, 1,
