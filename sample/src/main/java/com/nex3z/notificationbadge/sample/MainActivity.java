@@ -27,11 +27,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        Button many = (Button) findViewById(R.id.many);
+        many.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mCount = 98;
+                mBadge.setNumber(mCount);
+            }
+        });
+
         Button clear = (Button) findViewById(R.id.clear);
         clear .setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mBadge.clear();
+                mCount = 0;
+                mBadge.setNumber(mCount);
             }
         });
     }

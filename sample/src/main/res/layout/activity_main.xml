@@ -38,11 +38,17 @@
         android:text="@string/increase"/>
 
     <Button
-        android:id="@+id/clear"
+        android:id="@+id/many"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/increase"
-        android:layout_marginTop="16dp"
+        android:text="@string/many"/>
+
+    <Button
+        android:id="@+id/clear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/many"
         android:text="@string/clear"/>
 
 </RelativeLayout>

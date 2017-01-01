@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">NotificationBadge</string>
     <string name="increase">Increase</string>
+    <string name="many">Many Notifications</string>
     <string name="clear">Clear</string>
 </resources>
