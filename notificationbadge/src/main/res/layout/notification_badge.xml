@@ -16,7 +16,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/desc_badge_bg"
-        android:src="@drawable/badge_bg"/>
+        android:src="@drawable/nb_badge_bg"/>
 
     <TextView
         android:id="@+id/tv_badge_text"

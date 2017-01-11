@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="NotificationBadge">
-        <attr name="badgeTextSize" format="dimension"/>
-        <attr name="badgeTextColor" format="color" />
-        <attr name="badgeBackground" format="integer" />
-        <attr name="animationEnabled" format="boolean" />
-        <attr name="animationDuration" format="integer" />
-        <attr name="maxTextLength" format="integer" />
-        <attr name="ellipsizeText" format="string" />
+        <attr name="nbTextSize" format="dimension"/>
+        <attr name="nbTextColor" format="color" />
+        <attr name="nbBackground" format="reference" />
+        <attr name="nbAnimationEnabled" format="boolean" />
+        <attr name="nbAnimationDuration" format="integer" />
+        <attr name="nbMaxTextLength" format="integer" />
+        <attr name="nbEllipsizeText" format="string" />
     </declare-styleable>
 </resources>

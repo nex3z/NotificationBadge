@@ -48,22 +48,22 @@ public class NotificationBadge extends FrameLayout {
         TypedArray a = context.getTheme().obtainStyledAttributes(
                 attrs, R.styleable.NotificationBadge, 0, 0);
         try {
-            mBadgeTextColor = a.getColor(R.styleable.NotificationBadge_badgeTextColor, DEFAULT_TEXT_COLOR);
+            mBadgeTextColor = a.getColor(R.styleable.NotificationBadge_nbTextColor, DEFAULT_TEXT_COLOR);
             mTvBadgeText.setTextColor(mBadgeTextColor);
 
-            mBadgeTextSize = a.getDimensionPixelSize(R.styleable.NotificationBadge_badgeTextSize, (int)dpToPx(DEFAULT_TEXT_SIZE));
+            mBadgeTextSize = a.getDimensionPixelSize(R.styleable.NotificationBadge_nbTextSize, (int)dpToPx(DEFAULT_TEXT_SIZE));
             mTvBadgeText.setTextSize(TypedValue.COMPLEX_UNIT_PX, mBadgeTextSize);
 
-            mAnimationEnabled = a.getBoolean(R.styleable.NotificationBadge_animationEnabled, DEFAULT_ANIMATION_ENABLED);
+            mAnimationEnabled = a.getBoolean(R.styleable.NotificationBadge_nbAnimationEnabled, DEFAULT_ANIMATION_ENABLED);
 
-            mAnimationDuration = a.getInt(R.styleable.NotificationBadge_animationDuration, DEFAULT_ANIMATION_DURATION);
-            Drawable badgeBackground = a.getDrawable(R.styleable.NotificationBadge_badgeBackground);
+            mAnimationDuration = a.getInt(R.styleable.NotificationBadge_nbAnimationDuration, DEFAULT_ANIMATION_DURATION);
+            Drawable badgeBackground = a.getDrawable(R.styleable.NotificationBadge_nbBackground);
             if (badgeBackground != null) {
                 mIvBadgeBg.setImageDrawable(badgeBackground);
             }
 
-            mMaxTextLength = a.getInt(R.styleable.NotificationBadge_maxTextLength, DEFAULT_MAX_TEXT_LENGTH);
-            mEllipsizeText = a.getString(R.styleable.NotificationBadge_ellipsizeText);
+            mMaxTextLength = a.getInt(R.styleable.NotificationBadge_nbMaxTextLength, DEFAULT_MAX_TEXT_LENGTH);
+            mEllipsizeText = a.getString(R.styleable.NotificationBadge_nbEllipsizeText);
             if (mEllipsizeText == null) {
                 mEllipsizeText = DEFAULT_MAX_LENGTH_REACHED_TEXT;
             }
