@@ -9,7 +9,7 @@ import com.nex3z.notificationbadge.NotificationBadge;
 
 public class MainActivity extends AppCompatActivity {
 
-    NotificationBadge mBadge;
+    private NotificationBadge mBadge;
     private int mCount = 0;
 
     @Override
@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
         Button clear = (Button) findViewById(R.id.clear);
-        clear .setOnClickListener(new View.OnClickListener() {
+        clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mCount = 0;
