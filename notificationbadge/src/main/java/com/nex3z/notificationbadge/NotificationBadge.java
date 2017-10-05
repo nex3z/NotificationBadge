@@ -133,7 +133,7 @@ public class NotificationBadge extends FrameLayout {
                     mTvBadgeText.setText(mBadgeText);
                 }
             } else {
-                show(text);
+                show(mBadgeText);
             }
         }
     }
