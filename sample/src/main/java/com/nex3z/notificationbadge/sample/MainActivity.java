@@ -1,5 +1,6 @@
 package com.nex3z.notificationbadge.sample;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -17,9 +18,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBadge = (NotificationBadge) findViewById(R.id.badge);
+        mBadge = findViewById(R.id.badge);
 
-        Button increase = (Button) findViewById(R.id.increase);
+        Button increase = findViewById(R.id.increase);
         increase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button many = (Button) findViewById(R.id.many);
+        Button many = findViewById(R.id.many);
         many.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -36,12 +37,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        Button clear = (Button) findViewById(R.id.clear);
+        Button clear = findViewById(R.id.clear);
         clear.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 mCount = 0;
                 mBadge.setNumber(mCount);
+            }
+        });
+
+        Button showTab = findViewById(R.id.btn_show_tab);
+        showTab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MainActivity.this, TabActivity.class);
+                startActivity(intent);
             }
         });
     }

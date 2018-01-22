@@ -3,4 +3,9 @@
     <string name="increase">Increase</string>
     <string name="many">Many Notifications</string>
     <string name="clear">Clear</string>
+    <string name="badge_in_tab">Badge in Tab</string>
+    <string name="tab_1">Tab 1</string>
+    <string name="tab_2">Tab 2</string>
+    <string name="tab_3">Tab 3</string>
+    <string name="tab_content">Tab Content</string>
 </resources>
