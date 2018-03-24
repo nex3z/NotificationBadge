@@ -168,6 +168,10 @@ public class NotificationBadge extends FrameLayout {
         mIvBadgeBg.setImageResource(resId);
     }
 
+    public TextView getTextView(){
+        return mTvBadgeText;
+    }
+
     private void initUpdateAnimation() {
         mUpdate = new ScaleAnimation(1, 1.2f, 1, 1.2f,
                 Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
