@@ -77,8 +77,12 @@ public class NotificationBadge extends FrameLayout {
     }
 
     public void clear() {
+        clear(mAnimationEnabled);
+    }
+
+    public void clear(boolean animationEnabled) {
         if (mIsBadgeShown) {
-            if (mAnimationEnabled) {
+            if (animationEnabled) {
                 mContainer.startAnimation(mHide);
             } else {
                 mContainer.setVisibility(INVISIBLE);
@@ -91,6 +95,8 @@ public class NotificationBadge extends FrameLayout {
         mBadgeText = text;
         if (!mIsBadgeShown) {
             if (mAnimationEnabled) {
+                mContainer.setVisibility(VISIBLE);
+                mTvBadgeText.setText(text);
                 mContainer.startAnimation(mShow);
             } else {
                 mContainer.setVisibility(VISIBLE);
@@ -118,16 +124,20 @@ public class NotificationBadge extends FrameLayout {
     }
 
     public void setText(String text) {
+        setText(text, mAnimationEnabled);
+    }
+
+    public void setText(String text, boolean enableAnimation) {
         if (text != null && text.length() > mMaxTextLength) {
             mBadgeText = mEllipsizeText;
         } else {
             mBadgeText = text;
         }
         if (text == null || text.isEmpty()) {
-            clear();
+            clear(enableAnimation);
         } else {
             if (mIsBadgeShown) {
-                if (mAnimationEnabled) {
+                if (enableAnimation) {
                     mContainer.startAnimation(mUpdate);
                 } else {
                     mTvBadgeText.setText(mBadgeText);
@@ -139,10 +149,14 @@ public class NotificationBadge extends FrameLayout {
     }
 
     public void setNumber(int number) {
+        setNumber(number, mAnimationEnabled);
+    }
+
+    public void setNumber(int number, boolean enableAnimation) {
         if (number == 0) {
-            clear();
+            clear(enableAnimation);
         } else {
-            setText(String.valueOf(number));
+            setText(String.valueOf(number), enableAnimation);
         }
     }
 
@@ -184,7 +198,9 @@ public class NotificationBadge extends FrameLayout {
                 mTvBadgeText.setText(mBadgeText);
             }
             @Override
-            public void onAnimationEnd(Animation animation) {}
+            public void onAnimationEnd(Animation animation) {
+                mContainer.setVisibility(VISIBLE);
+            }
             @Override
             public void onAnimationRepeat(Animation animation) {}
         });
