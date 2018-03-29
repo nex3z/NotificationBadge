@@ -8,7 +8,7 @@ A notification badge with animation.
 ## Gradle
 
 ```
-compile 'com.nex3z:notification-badge:0.3.0'
+implementation 'com.nex3z:notification-badge:0.3.2'
 ```
 
 
