@@ -55,7 +55,7 @@
         android:id="@+id/btn_show_tab"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/many"
+        android:layout_below="@id/clear"
         android:text="@string/badge_in_tab"/>
 
 </RelativeLayout>
