@@ -10,7 +10,6 @@ import com.nex3z.notificationbadge.NotificationBadge;
 
 public class MainActivity extends AppCompatActivity {
 
-    private NotificationBadge mBadge;
     private int mCount = 0;
 
     @Override
@@ -18,13 +17,13 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mBadge = findViewById(R.id.badge);
+        final NotificationBadge badge = findViewById(R.id.badge);
 
         Button increase = findViewById(R.id.increase);
         increase.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mBadge.setNumber(++mCount);
+                badge.setNumber(++mCount);
             }
         });
 
@@ -33,7 +32,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mCount = 98;
-                mBadge.setNumber(mCount);
+                badge.setNumber(mCount);
             }
         });
 
@@ -42,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 mCount = 0;
-                mBadge.setNumber(mCount);
+                badge.setNumber(mCount);
             }
         });
 

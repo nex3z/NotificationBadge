@@ -3,13 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fl_container"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_margin="3dp"
     android:visibility="invisible"
     tools:layout_width="24dp"
-    tools:layout_height="24dp">
+    tools:layout_height="24dp"
+    tools:visibility="visible">
 
     <ImageView
         android:id="@+id/iv_badge_bg"
