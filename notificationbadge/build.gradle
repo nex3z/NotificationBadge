@@ -23,6 +23,10 @@ android {
     }
 }
 
+tasks.withType(Javadoc).all {
+    enabled = false
+}
+
 publish {
     userOrg = USER_ORG
     groupId = GROUP_ID
