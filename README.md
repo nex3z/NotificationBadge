@@ -8,7 +8,7 @@ A notification badge with animation.
 ## Gradle
 
 ```
-implementation 'com.nex3z:notification-badge:0.3.2'
+implementation 'com.nex3z:notification-badge:1.0.0'
 ```
 
 
@@ -21,8 +21,8 @@ Use `setNumber(int number)` or `setText(String text)` to add number or arbitrary
 
 | Attribute           | Format    | Description                                                                                                |
 |---------------------|-----------|------------------------------------------------------------------------------------------------------------|
-| nbTextSize          | dimension | Text size.                                                                                                 |
-| nbTextColor         | color     | Text color.                                                                                                |
+| textSize            | dimension | Text size.                                                                                                 |
+| textColor           | color     | Text color.                                                                                                |
 | nbBackground        | reference | Badge background image.                                                                                    |
 | nbAnimationEnabled  | boolean   | `true` to enable animation, `false`to disable it. The default is `true`.                                   |
 | nbAnimationDuration | integer   | Duration of the animation in milliseconds. The default is `500` milliseconds.                              |
