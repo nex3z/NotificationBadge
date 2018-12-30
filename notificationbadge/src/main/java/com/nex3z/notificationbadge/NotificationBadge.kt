@@ -26,6 +26,9 @@ class NotificationBadge(
         get() = tv_badge_text.currentTextColor
         set(color) = tv_badge_text.setTextColor(color)
 
+    val textView: TextView
+        get() = tv_badge_text
+
     var badgeBackgroundDrawable: Drawable?
         get() = iv_badge_bg.drawable
         set(drawable) = iv_badge_bg.setImageDrawable(drawable)
@@ -70,20 +73,25 @@ class NotificationBadge(
 
         val a = context.theme.obtainStyledAttributes(attrs, R.styleable.NotificationBadge, 0, 0)
         try {
-            val textColor = a.getColor(R.styleable.NotificationBadge_android_textColor, DEFAULT_TEXT_COLOR.toInt())
+            val textColor = a.getColor(R.styleable.NotificationBadge_android_textColor,
+                    DEFAULT_TEXT_COLOR.toInt())
             tv_badge_text.setTextColor(textColor)
 
-            val textSize = a.getDimension(R.styleable.NotificationBadge_android_textSize, dpToPx(DEFAULT_TEXT_SIZE));
+            val textSize = a.getDimension(R.styleable.NotificationBadge_android_textSize,
+                    dpToPx(DEFAULT_TEXT_SIZE))
             tv_badge_text.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize)
 
-            animationEnabled = a.getBoolean(R.styleable.NotificationBadge_nbAnimationEnabled, DEFAULT_ANIMATION_ENABLED)
-            animationDuration = a.getInt(R.styleable.NotificationBadge_nbAnimationDuration, DEFAULT_ANIMATION_DURATION)
+            animationEnabled = a.getBoolean(R.styleable.NotificationBadge_nbAnimationEnabled,
+                    DEFAULT_ANIMATION_ENABLED)
+            animationDuration = a.getInt(R.styleable.NotificationBadge_nbAnimationDuration,
+                    DEFAULT_ANIMATION_DURATION)
 
             a.getDrawable(R.styleable.NotificationBadge_nbBackground)?.let {
                 iv_badge_bg.setImageDrawable(it)
             }
 
-            maxTextLength = a.getInt(R.styleable.NotificationBadge_nbMaxTextLength, DEFAULT_MAX_TEXT_LENGTH)
+            maxTextLength = a.getInt(R.styleable.NotificationBadge_nbMaxTextLength,
+                    DEFAULT_MAX_TEXT_LENGTH)
             a.getString(R.styleable.NotificationBadge_nbEllipsizeText)?.let {
                 ellipsizeText = it
             }
@@ -131,8 +139,6 @@ class NotificationBadge(
             isVisible = false
         }
     }
-
-    fun getTextView(): TextView = tv_badge_text
 
     private fun dpToPx(dp: Int): Float {
         return TypedValue.applyDimension(
