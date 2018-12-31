@@ -14,6 +14,14 @@ implementation 'com.nex3z:notification-badge:1.0.2'
 
 ## Usage
 
+```xml
+<com.nex3z.notificationbadge.NotificationBadge
+    android:id="@+id/badge"
+    android:layout_width="28dp"
+    android:layout_height="28dp"
+    app:nbMaxTextLength="2"/>
+```
+
 Use `setNumber(int number)` or `setText(String text)` to add number or arbitrary text on the badge. Use `clear()` to clear the badge.
 
 
